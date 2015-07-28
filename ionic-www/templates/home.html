@@ -1,0 +1,83 @@
+<ion-view hide-back-button="true" title="EzyClaims">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <ion-tabs class="tabs-icon-only tabs-top tabs-positive">
+
+        <ion-tab title="Open Requests"
+                 icon-on="ion-ios7-home"
+                 icon-off="ion-ios7-home-outline"
+                 ng-controller="OpenRequestsCtrl">
+            <ion-content>
+                <ion-list>
+                    <ion-item ng-repeat="request in openrequests" href="#/app/requests/{{request.id}}">
+                        {{request.title}} {{request.state}}
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-tab>
+
+        <ion-tab title="Requests"
+                 icon-on="ion-ios7-clock"
+                 icon-off="ion-ios7-clock-outline"
+                 ng-controller="RequestsCtrl">
+            <ion-content>
+                <ion-list>
+                    <ion-item ng-repeat="request in requests" href="#/app/requests/{{request.id}}">
+                        {{request.title}} {{request.state}}
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-tab>
+
+        <ion-tab title="Add Request"
+                 icon-on="ion-ios7-plus"
+                 icon-off="ion-ios7-plus-outline"
+                 ng-controller="AddRequestCtrl">
+            <ion-content>
+                <form ng-submit="getPhoto()">
+                    <div class="list">
+                        <!--<label class="item item-input" ng-repeat="item in items">
+                            <span class="input-label">{{item.label}}</span>
+                            <input type="text" ng-model="loginData.{{item.label}}">
+                        </label>-->
+
+                        <label class="item item-input">
+                            <span class="input-label">EmpId</span>
+                            <input type="text" ng-model="loginData.empId">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">Name</span>
+                            <input type="text" ng-model="loginData.name">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">Relation</span>
+                            <select ng-model="loginData.relation">
+                                <option name="Self">Self</option>
+                                <option name="Mother">Mother</option>
+                                <option name="Father">Father</option>
+                                <option name="Spouse">Spouse</option>
+                            </select>
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">Date</span>
+                            <input type="date" ng-model="loginData.date">
+                        </label>
+                        <label class="item">
+                            <a class="button button-block button-positive ion-ios7-camera" ng-click="getPhoto()">  Add Attachment</a>
+                        </label>
+                        <label class="item item-input" ng-repeat="picture in loginData.pictures">
+                            <img src="data:image/png;base64,{{picture}}">
+                        </label>
+                        <label class="item">
+                            <button class="button button-block button-positive" type="submit">Log in</button>
+                        </label>
+                    </div>
+                </form>
+            </ion-content>
+        </ion-tab>
+
+    </ion-tabs>
+
+</ion-view>

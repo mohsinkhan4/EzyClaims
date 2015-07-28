@@ -1,0 +1,2 @@
+{"_id":{"$oid":"558f009146163a14dceab8a0"},"courseId":"1","courseName":"New To DOX","videos":[{"FilePath":"FilePath1","name":"Video1","videoId":NumberInt(1)},{"FilePath":"FilePath2","name":"Video2","videoId":NumberInt(2)},{"videoId":NumberInt(3)}]}
+{"_id":{"$oid":"558f12b346163a14dceab8a1"},"courseId":"2","courseName":"New To DOX","videos":[{"FilePath":"FilePath1","name":"Video1","videoId":NumberInt(2)}]}
