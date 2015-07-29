@@ -11,8 +11,8 @@
                  ng-controller="OpenRequestsCtrl">
             <ion-content>
                 <ion-list>
-                    <ion-item ng-repeat="request in openrequests" href="#/app/requests/{{request.id}}">
-                        {{request.title}} {{request.state}}
+                    <ion-item ng-repeat="request in openrequests" href="#/app/requests/{{request._id}}">
+                        {{request.name}} {{request.date}} {{request.relationship}} {{request.amount}}
                     </ion-item>
                 </ion-list>
             </ion-content>
@@ -24,8 +24,8 @@
                  ng-controller="RequestsCtrl">
             <ion-content>
                 <ion-list>
-                    <ion-item ng-repeat="request in requests" href="#/app/requests/{{request.id}}">
-                        {{request.title}} {{request.state}}
+                    <ion-item ng-repeat="request in requests" href="#/app/requests/{{request._id}}">
+                        {{request.name}} {{request.date}} {{request.relationship}} {{request.amount}} 
                     </ion-item>
                 </ion-list>
             </ion-content>
@@ -36,7 +36,7 @@
                  icon-off="ion-ios7-plus-outline"
                  ng-controller="AddRequestCtrl">
             <ion-content>
-                <form ng-submit="getPhoto()">
+                <form ng-submit="submitRequest()">
                     <div class="list">
                         <!--<label class="item item-input" ng-repeat="item in items">
                             <span class="input-label">{{item.label}}</span>
@@ -45,15 +45,15 @@
 
                         <label class="item item-input">
                             <span class="input-label">EmpId</span>
-                            <input type="text" ng-model="loginData.empId">
+                            <input type="text" ng-model="formData.empId">
                         </label>
                         <label class="item item-input">
                             <span class="input-label">Name</span>
-                            <input type="text" ng-model="loginData.name">
+                            <input type="text" ng-model="formData.name">
                         </label>
                         <label class="item item-input">
                             <span class="input-label">Relation</span>
-                            <select ng-model="loginData.relation">
+                            <select ng-model="formData.relation">
                                 <option name="Self">Self</option>
                                 <option name="Mother">Mother</option>
                                 <option name="Father">Father</option>
@@ -62,16 +62,16 @@
                         </label>
                         <label class="item item-input">
                             <span class="input-label">Date</span>
-                            <input type="date" ng-model="loginData.date">
+                            <input type="date" ng-model="formData.date">
                         </label>
-                        <label class="item">
+                        <!-- <label class="item">
                             <a class="button button-block button-positive ion-ios7-camera" ng-click="getPhoto()">  Add Attachment</a>
                         </label>
                         <label class="item item-input" ng-repeat="picture in loginData.pictures">
                             <img src="data:image/png;base64,{{picture}}">
-                        </label>
+                        </label> -->
                         <label class="item">
-                            <button class="button button-block button-positive" type="submit">Log in</button>
+                            <button class="button button-block button-positive" type="submit">Submit</button>
                         </label>
                     </div>
                 </form>

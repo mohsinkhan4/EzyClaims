@@ -21,93 +21,76 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+    $stateProvider
 
-  .state('app', {
-    url: "/app",
-    abstract: true,
-    templateUrl: "templates/menu.html",
-    controller: 'AppCtrl'
-  })
+        .state('app', {
+            url: "/app",
+            abstract: true,
+            templateUrl: "templates/menu.html",
+            controller: 'AppCtrl'
+        })
 
-  .state('app.search', {
-    url: "/search",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/search.html"
-      }
-    }
-  })
+        .state('app.home', {
+            url: "/home",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/home.html",
+                    controller: 'HomeCtrl'
+                }
+            }
+        })
 
-  .state('app.browse', {
-    url: "/browse",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
-      .state('app.home', {
-          url: "/home",
-          views: {
+        .state('app.login', {
+            url: "/login",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/login.html",
+                    controller: 'LoginCtrl'
+                }
+            }
+        })
+
+        .state('app.requests', {
+            url: "/requests",
+            views: {
               'menuContent': {
-                  templateUrl: "templates/home.html",
-                  controller: 'HomeCtrl'
+                //templateUrl: "templates/requests.html",
+                controller: 'RequestsCtrl'
               }
-          }
-      })
+            }
+        })
 
-      .state('app.login', {
-          url: "/login",
-          views: {
+        .state('app.openrequests', {
+            url: "/openrequests",
+            views: {
+                'menuContent': {
+                    //templateUrl: "templates/openrequests.html",
+                    controller: 'OpenRequestsCtrl'
+                }
+            }
+        })
+
+        .state('app.addrequest', {
+            url: "/addrequest",
+            views: {
+                'menuContent': {
+                    //templateUrl: "templates/openrequests.html",
+                    controller: 'AddRequestCtrl as addreq'
+                }
+            }
+        })
+
+        .state('app.single', {
+            url: "/requests/:requestId",
+            views: {
               'menuContent': {
-                  templateUrl: "templates/login.html",
-                  controller: 'LoginCtrl'
+                templateUrl: "templates/request.html",
+                controller: 'RequestCtrl'
               }
-          }
-      })
+            }
+        });
 
-    .state('app.requests', {
-      url: "/requests",
-      views: {
-        'menuContent': {
-          //templateUrl: "templates/requests.html",
-          controller: 'RequestsCtrl'
-        }
-      }
-    })
-
-  .state('app.openrequests', {
-      url: "/openrequests",
-      views: {
-          'menuContent': {
-              //templateUrl: "templates/openrequests.html",
-              controller: 'OpenRequestsCtrl'
-          }
-      }
-  })
-
-      .state('app.addrequest', {
-          url: "/addrequest",
-          views: {
-              'menuContent': {
-                  //templateUrl: "templates/openrequests.html",
-                  controller: 'AddRequestCtrl as addreq'
-              }
-          }
-      })
-
-  .state('app.single', {
-    url: "/requests/:requestId",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/request.html",
-        controller: 'RequestCtrl'
-      }
-    }
-
-  });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/login');
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/app/login');
 });
 
